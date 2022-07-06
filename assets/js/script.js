@@ -42,3 +42,7 @@ function readyNewsData(newsData) {
 
 
 }
+
+const date = document.getElementById('date');
+
+date.innerText = moment().format("dddd, MMMM Do YYYY");
