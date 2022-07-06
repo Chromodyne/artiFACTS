@@ -4,8 +4,11 @@ body {
 	padding: 5px;
 }
 
+/* These are used for the appended paragraphs. Ask Devin before changing! */
 p {
     display: inline-block;
+    padding-left: 3px;
+    font-size: 25px;
 }
 
 button {color: white; background: blue;

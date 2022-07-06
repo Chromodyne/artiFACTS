@@ -6,7 +6,6 @@ let numWords = 0;
 //Call Google News API on page load.
 callNewsApi();
 
-
 //Google News API Call
 function callNewsApi() {
 
@@ -67,9 +66,15 @@ function changeArticle(event) {
     if (event.currentTarget.id == "previous-article" && currentArticle > 0) {
         currentArticle--;
     }
+
+    //Remove previously appended children on article switch.
+    //TODO: Doesn't work for first article.
+    if (currentArticle !== 0) {
+        removeAllChildren();
+    }
+
     
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
-    //document.getElementById("news-description").textContent = localNewsData.articles[currentArticle].description;
 
     divideDescription();
 
@@ -80,11 +85,9 @@ const date = document.getElementById('date');
 
 date.innerText = moment().format("dddd, MMMM Do YYYY");
 
-
 //Event Listeners for Buttons
 document.getElementById("next-article").addEventListener("click", changeArticle);
 document.getElementById("previous-article").addEventListener("click", changeArticle);
-
 
 //Create p elements in HTML
 function divideDescription() {
@@ -93,7 +96,7 @@ function divideDescription() {
 
     //Gets the description of the current article.
     //TODO: Change this to based on the current article displayed.
-    let newsDesc = localNewsData.articles[1].description;
+    let newsDesc = localNewsData.articles[currentArticle].description;
 
     //
     let newsDescLength = newsDesc.split(" ").length;
@@ -109,13 +112,26 @@ function divideDescription() {
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
 
-        newEl.innerHTML = wordArray[i];
+        newEl.textContent = wordArray[i];
 
         theParent.appendChild(newEl);
 
     }
 
     addWordEventListeners();
+
+}
+
+//Used to remove all children p tags of the parent div of the article description when the article is changed.
+function removeAllChildren() {
+    
+    let parentElement = document.getElementById("word-list");
+
+    while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+    }
+
+    console.log("All children removed.");
 
 }
 
