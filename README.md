@@ -9,7 +9,8 @@ Sometimes you want the top daily news articles right at your fingertips, but the
 
 ## Live Website ##
 
-
+https://dominicfisher18.github.io/artiFACTS/
 
 ## Screenshot ##
 
+![placeholder for screenshot]
