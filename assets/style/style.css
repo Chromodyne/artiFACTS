@@ -4,6 +4,9 @@ body {
 	padding: 5px;
 }
 
+p {
+    display: inline-block;
+}
 
 button {color: white; background: blue;
     font-size: 15px;
@@ -17,7 +20,6 @@ button {color: white; background: blue;
 /* input type ="button"
   value"Previous Article"
   onClick="JavaScript: history.go(-1);">
-
 SEEMs like this should be in a form */
 
 
@@ -45,4 +47,3 @@ h1 {
   background-color: grey;
   border: 4px solid black;
 }
-
