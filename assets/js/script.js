@@ -43,10 +43,8 @@ function readyNewsData(newsData) {
     //Make a local array containing the api data.
     localNewsData = newsData;
 
-    //news-title
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
 
-    //news-description
     document.getElementById("news-description").textContent = localNewsData.articles[0].description;
 
 }
@@ -61,11 +59,12 @@ function changeArticle(event) {
     
     if (event.currentTarget.id == "previous-article" && currentArticle > 0) {
         currentArticle--;
-        console.log("Previous article condition met.");
     }
     
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
     document.getElementById("news-description").textContent = localNewsData.articles[currentArticle].description;
+
+    divideDescription();
 
 }
 
@@ -78,3 +77,28 @@ date.innerText = moment().format("dddd, MMMM Do YYYY");
 //Event Listeners for Buttons
 document.getElementById("next-article").addEventListener("click", changeArticle);
 document.getElementById("previous-article").addEventListener("click", changeArticle);
+
+
+//Create p elements in HTML
+function divideDescription() {
+
+    let wordArray = [];
+
+    //Gets the description of the current article.
+    //TODO: Change this to based on the current article displayed.
+    let newsDesc = localNewsData.articles[1].description;
+
+    //
+    let newsDescLength = newsDesc.split(" ").length;
+
+    wordArray = newsDesc.split(" ");
+    console.log(wordArray);
+
+    for (let i = 0; i < newsDescLength; i++) {
+       
+        //Create a new p element with an id == i
+        let newEl = document.createElement("p");
+        newEl.setAttribute("id", i);
+    }
+
+}
