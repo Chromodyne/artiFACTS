@@ -2,7 +2,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '6ec6cf3aa6msh04ad88a208dda4ap1e0104jsn10035a179610',
+		'X-RapidAPI-Key': 'PLACEHOLDER',
 		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
 	}
 };
@@ -17,7 +17,7 @@ const options = {
 const options2 = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '6ec6cf3aa6msh04ad88a208dda4ap1e0104jsn10035a179610',
+		'X-RapidAPI-Key': 'PLACEHOLDER',
 		'X-RapidAPI-Host': 'google-news1.p.rapidapi.com'
 	}
 };
@@ -25,9 +25,20 @@ const options2 = {
 //Google News API Call
 // fetch('https://google-news1.p.rapidapi.com/list-languages?country=%3CREQUIRED%3E', options2)
 // 	.then(response => response.json())
-// 	.then(response => console.log(response))
+// 	.then(response => readyNewsData(response))
 // 	.catch(err => console.error(err));
 
-let date = document.getElementById('date');
+//Takes in the response from the Google News API
+function readyNewsData(newsData) {
 
-date.innerText = moment().format("dddd, MMMM Do YYYY");
+    //Make a local array containing the api data.
+    let localNewsData = newsData;
+
+    //news-title
+    document.getElementById("news-title").textContent = localNewsData.articles[0].title;
+
+    //news-description
+    document.getElementById("news-description").textContent = localNewsData.articles[0].description;
+
+
+}
