@@ -45,7 +45,7 @@ function readyNewsData(newsData) {
 
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
 
-    document.getElementById("news-description").textContent = localNewsData.articles[0].description;
+    //document.getElementById("news-description").textContent = localNewsData.articles[0].description;
 
 }
 
@@ -62,7 +62,7 @@ function changeArticle(event) {
     }
     
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
-    document.getElementById("news-description").textContent = localNewsData.articles[currentArticle].description;
+    //document.getElementById("news-description").textContent = localNewsData.articles[currentArticle].description;
 
     divideDescription();
 
@@ -93,12 +93,21 @@ function divideDescription() {
 
     wordArray = newsDesc.split(" ");
     console.log(wordArray);
+    
+    let theParent = document.getElementById("word-list");
 
     for (let i = 0; i < newsDescLength; i++) {
        
         //Create a new p element with an id == i
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
+
+        newEl.innerHTML = 
+
+        theParent.appendChild(newEl);
+
+        console.log("Child appended.");
+
     }
 
 }
