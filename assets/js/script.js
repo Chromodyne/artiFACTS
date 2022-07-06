@@ -1,3 +1,6 @@
+let localNewsData = [];
+let currentArticle = 0;
+
 //WordsAPI Settings
 const options = {
 	method: 'GET',
@@ -38,7 +41,7 @@ function callNewsApi() {
 function readyNewsData(newsData) {
 
     //Make a local array containing the api data.
-    let localNewsData = newsData;
+    localNewsData = newsData;
 
     //news-title
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
@@ -48,10 +51,30 @@ function readyNewsData(newsData) {
 
 }
 
-function nextArticles() {
+//This function changes the article based on which button is clicked. This is determined by the event parameter
+//passed in by the event listener on said buttons.
+function changeArticle(event) {
+
+    if (event.currentTarget.id == "next-article") {
+        currentArticle++;
+    }
+    
+    if (event.currentTarget.id == "previous-article" && currentArticle > 0) {
+        currentArticle--;
+        console.log("Previous article condition met.");
+    }
+    
+    document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
+    document.getElementById("news-description").textContent = localNewsData.articles[currentArticle].description;
 
 }
 
+//Sets date at the top of the page.
 const date = document.getElementById('date');
 
 date.innerText = moment().format("dddd, MMMM Do YYYY");
+
+
+//Event Listeners for Buttons
+document.getElementById("next-article").addEventListener("click", changeArticle);
+document.getElementById("previous-article").addEventListener("click", changeArticle);
