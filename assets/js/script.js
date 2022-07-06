@@ -27,3 +27,7 @@ const options2 = {
 // 	.then(response => response.json())
 // 	.then(response => console.log(response))
 // 	.catch(err => console.error(err));
+
+let date = document.getElementById('date');
+
+date.innerText = moment().format("dddd, MMMM Do YYYY");
