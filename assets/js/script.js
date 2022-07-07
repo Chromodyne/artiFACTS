@@ -26,7 +26,7 @@ function callNewsApi() {
 }
 
 //WordsAPI API Call
-function callWordsApi() {
+function callWordsApi(word) {
     
     const options = {
         method: 'GET',
@@ -36,7 +36,7 @@ function callWordsApi() {
     }
     };
     
-fetch('https://wordsapiv1.p.rapidapi.com/words/hatchback/typeOf', options).then(
+fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options).then(
     (response) => {response.json();}).then(
         (response) => { //TODO: Add function call/stuff here.
             console.log(response);
@@ -77,6 +77,7 @@ function changeArticle(event) {
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
 
     divideDescription();
+    addWordEventListeners();
 
 }
 
@@ -108,6 +109,7 @@ function divideDescription() {
 
     for (let i = 0; i < newsDescLength; i++) {
        
+        numWords++;
         //Create a new p element with an id == i
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
@@ -145,19 +147,21 @@ function addWordEventListeners() {
 
 }
 
-//TODO: When a new article is pulled we must remove all the current event listeners before we can add them to a new one.
-//NOTE: Might be able to get away without doing this every time.
+//When a new article is pulled we must remove all the current event listeners before we can add them to a new one.
+//TODO: Might be able to get away without doing this every time for performance. CURRENTLY UNUSED
 function removeWordEventListeners() {
     
+    for(let i = 0; i < numWords; i++) {
+        document.getElementById(i).removeEventListener("click", getWordDef);
+    }
+
 }
 
 //TODO: This function will get the definition of a word from the WordsAPI.
 function getWordDef(event) {
 
-    let word;
+    let word = event.currentTarget.textContent;
 
-    console.log("Word definition grabbed.");
-
-    //return word;
+    callWordsApi(word);
 
 }

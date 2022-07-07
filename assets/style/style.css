@@ -9,6 +9,7 @@ p {
     display: inline-block;
     padding-left: 3px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 button {color: white; background: blue;
