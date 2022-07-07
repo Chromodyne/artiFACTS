@@ -53,6 +53,10 @@ h1 {
 }
 */
 
+.vh-25 {
+  min-height: 25vh;
+}
+
 
 .col-12.col-md-8.border.height:hover {
     background-color: orange;
