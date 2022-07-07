@@ -12,6 +12,7 @@ p {
     cursor: pointer;
 }
 
+/*
 button {color: white; background: blue;
     font-size: 15px;
     font-weight: 500;
@@ -20,6 +21,19 @@ button {color: white; background: blue;
     border-radius: 5px;
     cursor: pointer;
 }
+*/
+
+
+button {
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 
 /* input type ="button"
   value"Previous Article"
@@ -52,6 +66,7 @@ h1 {
   border: 4px solid black;
 }
 
+<<<<<<< HEAD
 /* Links and styles banner image */
 #banner {
   background-image: url('/assets/images/banner\ image.webp');
@@ -59,3 +74,8 @@ h1 {
   border: 1px solid black;
   height: 200px;
 }
+=======
+li {
+    font-size: 20px;
+}
+>>>>>>> e3bb9a1b5150601a2b2aed47bfbb7b70c93cd559
