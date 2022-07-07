@@ -39,8 +39,8 @@ function callWordsApi(word) {
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options)
         .then(response => response.json())
         .then(response => updateWordDef(response, word))
-        .catch(err => console.error(err));
-}
+        //.catch(err => console.error(err));
+};
 
 //Takes in the response from the Google News API
 function readyNewsData(newsData) {
@@ -175,27 +175,47 @@ function updateWordDef(defs, word) {
     console.log(defs);
 
     document.getElementById("word-name").textContent = word;
+    
+    let def1 = document.getElementById("def-1");
+    let def2 = document.getElementById("def-2");
+    let def3 = document.getElementById("def-3");
 
-    if (defs.definitions[0].definition !== null && defs.definitions[0].definition !== undefined) {
-        let def1 = document.getElementById("def-1");
+    if (defs.definitions[0] != null && defs.definitions[0] != undefined) {
+        
         def1.textContent = defs.definitions[0].definition;
         def1.style.display = "list-item";
-        console.log("Def1 displayed.");
+
+    } else {
+
+        def1.style.display = "none";
+        console.log("Def1 does not exist.");
 
     }
     
-    if (defs.definitions[1].definition !== null && defs.definitions[1].definition !== undefined) {
-        let def2 = document.getElementById("def-2");
+    if (defs.definitions[1] != null && defs.definitions[1] != undefined) {
+
         def2.textContent = defs.definitions[1].definition;
         def2.style.display = "list-item";
-        console.log("Def2 displayed.");
+
+    } else {
+
+        def2.style.display = "none";
+        console.log("Def1 does not exist.");
+
     }
 
-    if (defs.definitions[2].definition !== null && defs.definitions[2].definition !== undefined) {
-        let def3 = document.getElementById("def-3");
+    if (defs.definitions[2] != null && defs.definitions[2] != undefined) {
+
         def3.textContent = defs.definitions[2].definition;
         def3.style.display = "list-item";
-        console.log("Def3 displayed.");
+
+    } else {
+        def3.style.display = "none";
+        console.log("Def1 does not exist.");
     }
+
+}
+
+function saveLocalData() {
 
 }
