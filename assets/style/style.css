@@ -62,3 +62,9 @@ h1 {
 li {
   font-size: 20px;
 }
+
+
+#def-1, #def-2, #def-3 {
+  display: none;
+  list-style-type: lower-roman;
+}
