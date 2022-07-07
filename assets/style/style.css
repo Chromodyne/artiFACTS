@@ -42,8 +42,9 @@ SEEMs like this should be in a form */
 
 h1 {
     font-weight: bold;
-    font-size: 30pt;
-    color: red;
+    font-size: 40pt;
+    color: rgb(40, 19, 222);
+    font-family: 'Cinzel', serif;
 }
 
 
@@ -58,7 +59,7 @@ h1 {
 }
 
 .border-5 {
-  border-width: 5px;
+  border-width: 5px !important;
 }
 
 .col-12.col-md-8.border.height:hover {
