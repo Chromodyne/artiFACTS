@@ -57,6 +57,9 @@ h1 {
   min-height: 25vh;
 }
 
+.border-5 {
+  border-width: 5px;
+}
 
 .col-12.col-md-8.border.height:hover {
     background-color: orange;
