@@ -38,7 +38,7 @@ function callWordsApi(word) {
     
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options)
         .then(response => response.json())
-        .then(response => updateWordDef(response))
+        .then(response => updateWordDef(response, word))
         .catch(err => console.error(err));
 }
 
@@ -58,6 +58,8 @@ function readyNewsData(newsData) {
 //passed in by the event listener on said buttons.
 function changeArticle(event) {
 
+    numWords = 0;
+
     if (event.currentTarget.id == "next-article") {
         currentArticle++;
     }
@@ -70,6 +72,7 @@ function changeArticle(event) {
     //TODO: Doesn't work for first article.
     if (currentArticle !== 0) {
         removeAllChildren();
+        removeWordEventListeners();
     }
 
     
@@ -95,13 +98,15 @@ function divideDescription() {
     let wordArray = [];
 
     //Gets the description of the current article.
-    //TODO: Change this to based on the current article displayed.
     let newsDesc = localNewsData.articles[currentArticle].description;
 
     //
-    let newsDescLength = newsDesc.split(" ").length;
+    
 
     wordArray = newsDesc.split(" ");
+
+    let newsDescLength = newsDesc.split(" ").length;
+
     console.log(wordArray);
     
     let theParent = document.getElementById("word-list");
@@ -160,13 +165,18 @@ function removeWordEventListeners() {
 function getWordDef(event) {
 
     let word = event.currentTarget.textContent;
-    console.log(word);
-    callWordsApi(word);
+
+    //Remove any symbols from the word.
+    let modifiedWord = word.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+
+    callWordsApi(modifiedWord);
 
 }
 
-function updateWordDef(defs) {
+function updateWordDef(defs, word) {
     console.log(defs);
+
+    document.getElementById("word-name").textContent = word;
 
     document.getElementById("def-1").textContent = defs.definitions[0].definition;
 
