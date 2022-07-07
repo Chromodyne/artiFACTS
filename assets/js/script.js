@@ -103,10 +103,6 @@ function divideDescription() {
 
     let newsDescLength = newsDesc.split(" ").length;
 
-    for (let i = 0; i < wordArray.length; i++) {
-        wordArray[i].replace(/&amp;#039;/g, "'");
-    }
-    
     console.log(wordArray);
 
     let theParent = document.getElementById("word-list");
