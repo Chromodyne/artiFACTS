@@ -74,7 +74,7 @@ function changeArticle(event) {
         removeWordEventListeners();
     }
 
-    
+
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
 
     divideDescription();
@@ -103,13 +103,18 @@ function divideDescription() {
 
     let newsDescLength = newsDesc.split(" ").length;
 
-    console.log(wordArray);
+    for (let i = 0; i < wordArray.length; i++) {
+        wordArray[i].replace(/&amp;#039;/g, "'");
+    }
     
+    console.log(wordArray);
+
     let theParent = document.getElementById("word-list");
 
     for (let i = 0; i < newsDescLength; i++) {
        
         numWords++;
+
         //Create a new p element with an id == i
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
@@ -180,15 +185,15 @@ function updateWordDef(defs, word) {
     let def2 = document.getElementById("def-2");
     let def3 = document.getElementById("def-3");
 
+
     if (defs.definitions[0] != null && defs.definitions[0] != undefined) {
         
         def1.textContent = defs.definitions[0].definition;
         def1.style.display = "list-item";
 
-    } else {
+    } else {gi
 
         def1.style.display = "none";
-        console.log("Def1 does not exist.");
 
     }
     
@@ -200,7 +205,7 @@ function updateWordDef(defs, word) {
     } else {
 
         def2.style.display = "none";
-        console.log("Def1 does not exist.");
+
 
     }
 
@@ -210,8 +215,9 @@ function updateWordDef(defs, word) {
         def3.style.display = "list-item";
 
     } else {
+
         def3.style.display = "none";
-        console.log("Def1 does not exist.");
+
     }
 
 }
