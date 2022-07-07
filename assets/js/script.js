@@ -31,16 +31,15 @@ function callWordsApi(word) {
     const options = {
         method: 'GET',
         headers: {
-        'X-RapidAPI-Key': '6ec6cf3aa6msh04ad88a208dda4ap1e0104jsn10035a179610',
-        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-    }
+            'X-RapidAPI-Key': '6ec6cf3aa6msh04ad88a208dda4ap1e0104jsn10035a179610',
+            'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+        }
     };
     
-fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options).then(
-    (response) => {response.json();}).then(
-        (response) => { //TODO: Add function call/stuff here.
-            console.log(response);
-    });
+    fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options)
+        .then(response => response.json())
+        .then(response => updateWordDef(response))
+        .catch(err => console.error(err));
 }
 
 //Takes in the response from the Google News API
@@ -161,7 +160,21 @@ function removeWordEventListeners() {
 function getWordDef(event) {
 
     let word = event.currentTarget.textContent;
-
+    console.log(word);
     callWordsApi(word);
 
+}
+
+function updateWordDef(defs) {
+    console.log(defs);
+
+    document.getElementById("def-1").textContent = defs.definitions[0].definition;
+
+    if (defs.definitions[1].definition !== null && defs.definitions[1].definition !== undefined) {
+        document.getElementById("def-2").textContent = defs.definitions[1].definition;
+    }
+
+    if (defs.definitions[2].definition !== null && defs.definitions[2].definition !== undefined) {
+        document.getElementById("def-3").textContent = defs.definitions[2].definition;
+    }
 }
