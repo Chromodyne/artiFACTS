@@ -9,11 +9,17 @@ p {
     display: inline-block;
     padding-left: 3px;
     font-size: 25px;
+    cursor: pointer;
 }
 
+<<<<<<< HEAD
 
 /*
 button {color: white; background: blue;
+=======
+button {
+    /* color: white; background: blue; */
+>>>>>>> 377b1fac22c825ea2fbda7ccbf85e8e24814d163
     font-size: 15px;
     font-weight: 500;
     outline: none;
@@ -64,4 +70,8 @@ h1 {
 .col-12.col-md-4.border:hover {
   background-color: grey;
   border: 4px solid black;
+}
+
+li {
+    font-size: 20px;
 }
