@@ -11,6 +11,8 @@ p {
     font-size: 25px;
 }
 
+
+/*
 button {color: white; background: blue;
     font-size: 15px;
     font-weight: 500;
@@ -19,6 +21,19 @@ button {color: white; background: blue;
     border-radius: 5px;
     cursor: pointer;
 }
+*/
+
+
+button {
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 
 /* input type ="button"
   value"Previous Article"
