@@ -13,4 +13,4 @@ https://dominicfisher18.github.io/artiFACTS/
 
 ## Screenshot ##
 
-![placeholder for screenshot]
+![The Accessible Times](./assets/images/WebScreenshot.png "The Accessible Times")
