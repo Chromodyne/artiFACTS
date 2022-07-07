@@ -52,14 +52,10 @@ h1 {
   border: 4px solid black;
 }
 
-/* Styles banner image */
+/* Links and styles banner image */
 #banner {
-  background-image: url('/assets/images/Newspaper\ Banner\ Images.jpg');
-  background-size: cover;
-  background-position: center;
-  aspect-ratio: auto;
-  height: 200px;
-  width: 100%;
-  padding: 20px;
+  background-image: url('/assets/images/banner\ image.webp');
+  object-fit: cover;
   border: 1px solid black;
+  height: 200px;
 }
