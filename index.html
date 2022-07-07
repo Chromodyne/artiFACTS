@@ -10,26 +10,20 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="container-fluid p-5">
-        <div class="col border justify-content-center text-center">
+    <header class="container-fluid ">
+        <div class="col border justify-content-center text-center my-5 mx-0">
             <h1>Title</h1>
             <h2 id="date"></h2>
         </div>
-        <nav class="navbar border mt-1 mb-2 text-center">
-            <div class="col-6 col-md-3 my-2" ><button class="text-white bg-dark">Headline News</button></div>
-            <div class="col-6 col-md-3 my-2"><button class="text-white bg-dark">Happened Today</button></div>
-            <div class="col-6 col-md-3 my-2"><button class="text-white bg-dark">Random Fact</button></div>
-            <div class="col-6 col-md-3 my-2"><button class="text-white bg-dark">Wikipedia</button></div>
-        </nav>
     </header>
-    <main class="container-fluid">
-        <div class="row border mx-3 mb-2">
-            <div class="col-12 col-md-8 border">
+    <main class="container-fluid border">
+        <div class="row border mx-3 mb-2 border d-flex justify-content-around">
+            <div class="col-12 col-md-7 border vh-25">
                 <h2 id="news-title">News Title</h2>
                 <div id="word-list">
                 </div>
             </div>
-            <div class="col-12 col-md-4 border">
+            <div class="col-12 col-md-3">
                 <h3>Definitions:</h3>
                 <p id="word-name">Word</p>
                 <ul>
@@ -41,12 +35,13 @@
         </div>
     </main>
     <footer class="container-fluid"> 
-        <div class="row  mx-3 mb-2">
-            <div class="col-md-8 d-flex justify-content-between">
+        <div class="row  mx-3 mb-2  d-flex justify-content-around">
+            <div class="col-md-7 d-flex justify-content-around">
                 <button class="bg-primary" id="previous-article">Previous Article</button>
-                <button id="next-article">Next Article</button>
+                <a href="#">Link Placeholder</a>
+                <button class="bg-primary" id="next-article">Next Article</button>
             </div>  
-            <div class="col-md-4 "></div>
+            <div class="col-md-3"></div>
         </div>
     </footer> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
