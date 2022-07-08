@@ -53,7 +53,7 @@ function readyNewsData(newsData) {
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
     document.getElementById("link-url").setAttribute('href', localNewsData.articles[0].link);
 
-    //document.getElementById("news-description").textContent = localNewsData.articles[0].description;
+    divideDescription();
 
 }
 
@@ -233,6 +233,9 @@ function saveDefinitionData(word) {
 
     for (let i = 1; i <= 3; i++) {
 
+        //Don't care to do it this way. removeItem is giving me headaches though.
+        localStorage.clear;
+
         let defItem = document.getElementById(`def-${i}`).textContent;
         localStorage.setItem(`def-${i}`, defItem);
 
@@ -253,8 +256,11 @@ function loadDefinitionData() {
         if (localStorage.getItem(`def-${i}`) !== null) {
             let defItem = document.getElementById(`def-${i}`);
             defItem.textContent = localStorage.getItem(`def-${i}`);
-            console.log(`Def ${i} loaded.`);
-            defItem.style.display = "list-item";
+
+            if (localStorage.getItem(`def-${i}`) != `Definition ${i}`) {
+                defItem.style.display = "list-item";
+            }
+            
         }
 
     }
