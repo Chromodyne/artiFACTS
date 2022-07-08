@@ -5,6 +5,8 @@ let numWords = 0;
 
 //Call Google News API on page load.
 callNewsApi();
+//Load saved definitions on page load.
+loadDefinitionData();
 
 //Google News API Call
 function callNewsApi() {
@@ -189,7 +191,7 @@ function updateWordDef(defs, word) {
         def1.textContent = defs.definitions[0].definition;
         def1.style.display = "list-item";
 
-    } else {gi
+    } else {
 
         def1.style.display = "none";
 
@@ -218,9 +220,45 @@ function updateWordDef(defs, word) {
 
     }
 
+    saveDefinitionData(word);
+
 }
 
-function saveLocalData() {
+//This saves the last loaded definition to localStorage so that if
+//the page is refreshed or closed it will be there when the user returns.
+function saveDefinitionData(word) {
+
+
+    localStorage.setItem("word", word);
+
+    for (let i = 1; i <= 3; i++) {
+
+        let defItem = document.getElementById(`def-${i}`).textContent;
+        localStorage.setItem(`def-${i}`, defItem);
+
+    }
+    
+}
+
+//Loads
+function loadDefinitionData() {
+
+    if (localStorage.getItem("word") !== null) {
+        document.getElementById("word-name").textContent = localStorage.getItem("word");
+        console.log("Word loaded.");
+    }
+    
+    for (let i = 1; i <= 3; i++) {
+
+        if (localStorage.getItem(`def-${i}`) !== null) {
+            let defItem = document.getElementById(`def-${i}`);
+            defItem.textContent = localStorage.getItem(`def-${i}`);
+            console.log(`Def ${i} loaded.`);
+            defItem.style.display = "list-item";
+        }
+
+    }
+
 
 }
 
