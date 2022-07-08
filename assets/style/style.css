@@ -68,3 +68,7 @@ li {
   display: none;
   list-style-type: lower-roman;
 }
+
+#word-name {
+  font-style: italic;
+}
