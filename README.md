@@ -5,13 +5,15 @@
 
 ## Description ##
 
-Sometimes you want the top daily news articles right at your fingertips, but these are often stuck behind a paywall.  These news articles can also be difficult to read, especially for younger people or those who don't have English as thir primary language.  This web application solves both of these issues with ease.  Our headlines are pulled from Google News and put in an easy to access format.  In additon, every word in the headlines and the following snippets are interactive.  Clicking on a word will provide you with a definition, synonyms, and context to allow you to fully understand the articles in their entirety. 
+A growing proportion of the population doesn’t keep up with the news. The reasons why are as varied as they are complex; however, a major factor is the lack of accessibility features the common news sources have. Whether it’s due to confusing language, complex vocabulary, or a lack of English fluency on the part of the reader, consuming news articles can be very difficult for some. America, and increasingly the world, is a melting pot of immigrants of all linguistic backgrounds. Our website, The Accessible Times, aims to help people not only read but truly comprehend the news through use of interactive accessibility options. Don’t know a word? Click it and you will find a list of definitions appear for that word! Future plans are already being made to expand this functionality to include the ability to obtain other information about terms such as synonyms, antonyms, and even explanations idioms.
 
-## Technologies Used ##
+## Technology Used ##
 
-MomentJS
-Google News API
-WordsAPI
+[MomentJS API](https://momentjs.com/)
+
+[Google News API](https://rapidapi.com/ubillarnet/api/google-news1/)
+
+[WordsAPI](https://rapidapi.com/dpventures/api/wordsapi/)
 
 ## Live Website ##
 

@@ -22,7 +22,6 @@ function callNewsApi() {
     fetch('https://google-news1.p.rapidapi.com/top-headlines?country=US&lang=en&limit=25&media=true', options2).then(
         (resp) => {return resp.json();}).then (
         (data) => {  readyNewsData(data);
-            console.log(data);
     });
 
 }
@@ -88,14 +87,14 @@ function changeArticle(event) {
 
 //Sets date at the top of the page.
 const date = document.getElementById('date');
-
 date.innerText = moment().format("dddd, MMMM Do YYYY");
 
 //Event Listeners for Buttons
 document.getElementById("next-article").addEventListener("click", changeArticle);
 document.getElementById("previous-article").addEventListener("click", changeArticle);
 
-//Create p elements in HTML
+//This function is used to divide the content of the article into individual elements so that
+//they may be interacted with by the user.
 function divideDescription() {
 
     let wordArray = [];
@@ -105,9 +104,8 @@ function divideDescription() {
 
     wordArray = newsDesc.split(" ");
 
+    //Split the description.
     let newsDescLength = newsDesc.split(" ").length;
-
-    console.log(wordArray);
 
     let theParent = document.getElementById("word-list");
 
@@ -115,7 +113,7 @@ function divideDescription() {
        
         numWords++;
 
-        //Create a new p element with an id == i
+        //Create a new p element with an id equal i
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
 
@@ -138,8 +136,6 @@ function removeAllChildren() {
         parentElement.removeChild(parentElement.firstChild);
     }
 
-    console.log("All children removed.");
-
 }
 
 //This function adds event listeners to each word in the text so that a definition may be grabbed from the Words API.
@@ -153,7 +149,6 @@ function addWordEventListeners() {
 }
 
 //When a new article is pulled we must remove all the current event listeners before we can add them to a new one.
-//TODO: Might be able to get away without doing this every time for performance.
 function removeWordEventListeners() {
     
     for(let i = 0; i < numWords; i++) {
@@ -162,7 +157,7 @@ function removeWordEventListeners() {
 
 }
 
-//TODO: This function will get the definition of a word from the WordsAPI.
+//This function gets the definition for the word the user clicks on.
 function getWordDef(event) {
 
     let word = event.currentTarget.textContent;
@@ -176,8 +171,6 @@ function getWordDef(event) {
 
 //Updates the word definitions based on the word clicked on.
 function updateWordDef(defs, word) {
-
-    console.log(defs);
 
     document.getElementById("word-name").textContent = word;
     
@@ -243,14 +236,14 @@ function saveDefinitionData(word) {
     
 }
 
-//Loads
+//Loads saved definitions from localStorage if it exists when the user loads the page.
 function loadDefinitionData() {
 
     if (localStorage.getItem("word") !== null) {
         document.getElementById("word-name").textContent = localStorage.getItem("word");
-        console.log("Word loaded.");
     }
     
+    //Loop through each definition in localStorage and then update text content for elements.
     for (let i = 1; i <= 3; i++) {
 
         if (localStorage.getItem(`def-${i}`) !== null) {
