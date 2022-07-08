@@ -95,3 +95,21 @@ li {
     font-size: 30px;
   }
 }
+
+/* Styles article link url */
+#link-url {
+  text-decoration: none;
+  color: rgb(189, 4, 4);
+  font-weight: 600;
+  font-size: 18px;
+  background-color: rgb(245, 244, 244);
+}
+
+#link-url:hover {
+  background-color: lightgray;
+}
+
+/* Horizontal Rule Styling */
+hr {
+  border: solid black;
+}
