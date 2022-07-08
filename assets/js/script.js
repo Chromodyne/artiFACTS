@@ -49,6 +49,7 @@ function readyNewsData(newsData) {
     localNewsData = newsData;
 
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
+    document.getElementById("link-url").setAttribute('href', localNewsData.articles[0].link);
 
     //document.getElementById("news-description").textContent = localNewsData.articles[0].description;
 
@@ -76,6 +77,7 @@ function changeArticle(event) {
 
 
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
+    document.getElementById("link-url").setAttribute('href', localNewsData.articles[currentArticle].link);
 
     divideDescription();
     addWordEventListeners();
@@ -215,16 +217,10 @@ function updateWordDef(defs, word) {
         def3.style.display = "none";
 
     }
-<<<<<<< HEAD
-}
-
-
-// 
-=======
 
 }
 
 function saveLocalData() {
 
 }
->>>>>>> 19e17aaf95cf131fd2ee47ab8f7370e3e9fdc147
+

@@ -92,3 +92,9 @@ li {
     font-size: 30px;
   }
 }
+
+#link-url {
+  text-decoration: none;
+  color: rgb(189, 4, 4);
+  font-weight: bold;
+}
