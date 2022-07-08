@@ -39,8 +39,8 @@ function callWordsApi(word) {
     fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`, options)
         .then(response => response.json())
         .then(response => updateWordDef(response, word))
-        .catch(err => console.error(err));
-}
+        //.catch(err => console.error(err));
+};
 
 //Takes in the response from the Google News API
 function readyNewsData(newsData) {
@@ -69,13 +69,12 @@ function changeArticle(event) {
     }
 
     //Remove previously appended children on article switch.
-    //TODO: Doesn't work for first article.
     if (currentArticle !== 0) {
         removeAllChildren();
         removeWordEventListeners();
     }
 
-    
+
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
 
     divideDescription();
@@ -100,20 +99,18 @@ function divideDescription() {
     //Gets the description of the current article.
     let newsDesc = localNewsData.articles[currentArticle].description;
 
-    //
-    
-
     wordArray = newsDesc.split(" ");
 
     let newsDescLength = newsDesc.split(" ").length;
 
     console.log(wordArray);
-    
+
     let theParent = document.getElementById("word-list");
 
     for (let i = 0; i < newsDescLength; i++) {
        
         numWords++;
+
         //Create a new p element with an id == i
         let newEl = document.createElement("p");
         newEl.setAttribute("id", i);
@@ -152,7 +149,7 @@ function addWordEventListeners() {
 }
 
 //When a new article is pulled we must remove all the current event listeners before we can add them to a new one.
-//TODO: Might be able to get away without doing this every time for performance. CURRENTLY UNUSED
+//TODO: Might be able to get away without doing this every time for performance.
 function removeWordEventListeners() {
     
     for(let i = 0; i < numWords; i++) {
@@ -173,21 +170,61 @@ function getWordDef(event) {
 
 }
 
+//Updates the word definitions based on the word clicked on.
 function updateWordDef(defs, word) {
+
     console.log(defs);
 
     document.getElementById("word-name").textContent = word;
+    
+    let def1 = document.getElementById("def-1");
+    let def2 = document.getElementById("def-2");
+    let def3 = document.getElementById("def-3");
 
-    document.getElementById("def-1").textContent = defs.definitions[0].definition;
 
-    if (defs.definitions[1].definition !== null && defs.definitions[1].definition !== undefined) {
-        document.getElementById("def-2").textContent = defs.definitions[1].definition;
+    if (defs.definitions[0] != null && defs.definitions[0] != undefined) {
+        
+        def1.textContent = defs.definitions[0].definition;
+        def1.style.display = "list-item";
+
+    } else {gi
+
+        def1.style.display = "none";
+
+    }
+    
+    if (defs.definitions[1] != null && defs.definitions[1] != undefined) {
+
+        def2.textContent = defs.definitions[1].definition;
+        def2.style.display = "list-item";
+
+    } else {
+
+        def2.style.display = "none";
+
+
     }
 
-    if (defs.definitions[2].definition !== null && defs.definitions[2].definition !== undefined) {
-        document.getElementById("def-3").textContent = defs.definitions[2].definition;
+    if (defs.definitions[2] != null && defs.definitions[2] != undefined) {
+
+        def3.textContent = defs.definitions[2].definition;
+        def3.style.display = "list-item";
+
+    } else {
+
+        def3.style.display = "none";
+
     }
+<<<<<<< HEAD
 }
 
 
 // 
+=======
+
+}
+
+function saveLocalData() {
+
+}
+>>>>>>> 19e17aaf95cf131fd2ee47ab8f7370e3e9fdc147
