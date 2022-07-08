@@ -51,6 +51,7 @@ function readyNewsData(newsData) {
     localNewsData = newsData;
 
     document.getElementById("news-title").textContent = localNewsData.articles[0].title;
+    document.getElementById("link-url").setAttribute('href', localNewsData.articles[0].link);
 
     //document.getElementById("news-description").textContent = localNewsData.articles[0].description;
 
@@ -78,6 +79,7 @@ function changeArticle(event) {
 
 
     document.getElementById("news-title").textContent = localNewsData.articles[currentArticle].title;
+    document.getElementById("link-url").setAttribute('href', localNewsData.articles[currentArticle].link);
 
     divideDescription();
     addWordEventListeners();
@@ -259,3 +261,4 @@ function loadDefinitionData() {
 
 
 }
+
