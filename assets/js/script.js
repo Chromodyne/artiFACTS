@@ -188,3 +188,6 @@ function updateWordDef(defs, word) {
         document.getElementById("def-3").textContent = defs.definitions[2].definition;
     }
 }
+
+
+// 
