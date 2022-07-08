@@ -26,11 +26,22 @@ button {
 
 h1 {
     font-weight: bold;
-    font-size: 40pt;
-    color: rgb(40, 19, 222);
-    font-family: 'Cinzel', serif;
+    font-size: 50pt;
+    color: rgb(69, 118, 197);
+    font-family: 'Scope One', serif;
 }
 
+h2 {
+  font-family: 'Scope One', serif;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+h3 {
+  font-family: 'Scope One', serif;
+  font-weight: 800;
+  font-size: 40px;
+}
 
 .vh-25 {
   min-height: 25vh;
@@ -67,4 +78,17 @@ li {
 #def-1, #def-2, #def-3 {
   display: none;
   list-style-type: lower-roman;
+  font-size: larger;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 37px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 30px;
+  }
 }
